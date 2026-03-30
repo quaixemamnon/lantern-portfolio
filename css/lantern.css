@@ -40,3 +40,7 @@ h1 {
 .face:nth-child(4) { transform: rotateY(180deg) translateZ(150px); }
 .face:nth-child(5) { transform: rotateY(240deg) translateZ(150px); }
 .face:nth-child(6) { transform: rotateY(300deg) translateZ(150px); }
+.lantern {
+    transform-style: preserve-3d;
+    transition: transform 0.1s linear;
+}
