@@ -1,11 +1,24 @@
-const lantern = document.querySelector('.lantern');
-let angle = 0;
-let interval = setInterval(rotate, 100);
+const cube = document.querySelector('.cube');
+let angleY = 0;
+let angleX = 0;
+let interval;
 
-function rotate() {
-    angle += 5;
-    lantern.style.transform = `rotateY(${angle}deg)`;
+function rotateCube() {
+    angleY += 1;
+    angleX += 0.5;
+    cube.style.transform = `rotateY(${angleY}deg) rotateX(${angleX}deg)`;
 }
 
-lantern.addEventListener('mouseenter', () => clearInterval(interval));
-lantern.addEventListener('mouseleave', () => interval = setInterval(rotate, 100));
+function startRotation() {
+    if (!interval) interval = setInterval(rotateCube, 30);
+}
+
+function stopRotation() {
+    clearInterval(interval);
+    interval = null;
+}
+
+startRotation();
+
+cube.addEventListener('mouseenter', stopRotation);
+cube.addEventListener('mouseleave', startRotation);
