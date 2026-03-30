@@ -6,5 +6,6 @@ function rotate() {
     angle += 5;
     lantern.style.transform = `rotateY(${angle}deg)`;
 }
+
 lantern.addEventListener('mouseenter', () => clearInterval(interval));
 lantern.addEventListener('mouseleave', () => interval = setInterval(rotate, 100));
